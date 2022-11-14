@@ -7,13 +7,6 @@
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="LifeOfGame.Cell" Collapsed="true">
-    <Position X="7.25" Y="1.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Cell.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="LifeOfGame.Scene" Collapsed="true">
     <Position X="6.25" Y="2.25" Width="1.5" />
     <TypeIdentifier>
