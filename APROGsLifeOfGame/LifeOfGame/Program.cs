@@ -19,7 +19,8 @@
  * - A live cell with more than three live neighbors dies.
  * - A dead cell will be brought back to live if it has exactly three live neighbors.
  *
- * -> Source (https://beltoforion.de/en/game_of_life/)
+ * -> Source: https://beltoforion.de/en/game_of_life/
+ * -> Other sources: https://www.youtube.com/watch?v=FWSR_7kZuYg
  */
 
 
@@ -29,8 +30,22 @@ namespace LifeOfGame
   {
     static void Main(string[] args)
     {
+      // configure user control 
+      // - joystick control & grid navigation
+      // - 
+      // create grid
+      // populate grid via templates or start with clean version
 
-      Console.WriteLine("Hello, World!");
+      // draw grid
+
+      // calculate next generation
+      // - calculate each cells neighbor sum and compare with rules
+
+      // - decide on killing or creating the respective Cell
+
+
+
+      Console.WriteLine("o");
     }
   }
 }
