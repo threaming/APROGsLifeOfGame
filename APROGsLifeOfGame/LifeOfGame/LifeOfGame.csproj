@@ -10,4 +10,8 @@
 		<Exec Command="if &quot;$(ConfigurationName)&quot; == Debug (&#xD;&#xA;cd &quot;$(TargetDir)&quot;&#xD;&#xA;&quot;$(SolutionDir)\SecureUpload.exe&quot; . pi-hslu:netcore/$(ProjectName)&#xD;&#xA;)" />
 	</Target>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\GpioHAT\GpioHAT.csproj" />
+	</ItemGroup>
+
 </Project>

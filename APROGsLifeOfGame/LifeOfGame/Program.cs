@@ -32,9 +32,9 @@ namespace LifeOfGame
     {
       // configure user control 
       // - joystick control & grid navigation
-      // - 
+
       // create grid
-      // populate grid via templates or start with clean version
+      // populate grid via templates or start with blank version
 
       // draw grid
 
@@ -44,7 +44,7 @@ namespace LifeOfGame
       // - decide on killing or creating the respective Cell
 
 
-
+      GameOfLife game = new GameOfLife();
       Console.WriteLine("o");
     }
   }

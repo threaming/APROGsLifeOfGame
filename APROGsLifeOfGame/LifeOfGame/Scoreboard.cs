@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LifeOfGame
 {
-    public class Scene
+    public class Scoreboard
     {
     }
 }

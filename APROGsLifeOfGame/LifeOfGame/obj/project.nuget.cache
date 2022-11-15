@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "NYNdXi5kuEeqc/F4/KMb1irT0UkXU1AwR46A7MHe1ZKLMpnUxFh+LDy9ldSBTe8kkO28ftiHXV4J00RJV60MuQ==",
+  "dgSpecHash": "jUObFTAWqU8Fs1lGXGeKBhhaGnzSCduMltu21AysiXMgp6QNOffsTSr5N1+T9eBaJKut/YnqqIYEvbLkpUnqgA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\andre\\source\\repos\\APROGsLifeOfGame\\APROGsLifeOfGame\\LifeOfGame\\LifeOfGame.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\joelv\\source\\repos\\AndreasMing\\APROGsGameOfLife\\APROGsLifeOfGame\\LifeOfGame\\LifeOfGame.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\joelv\\.nuget\\packages\\system.device.gpio\\2.2.0\\system.device.gpio.2.2.0.nupkg.sha512"
+  ],
   "logs": []
 }
