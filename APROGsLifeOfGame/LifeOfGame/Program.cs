@@ -36,6 +36,10 @@ namespace LifeOfGame
     
     static void Main(string[] args)
     {
+            // Add a menu
+            Menu menu = new Menu("Top", null);
+            menu.AddSub("Second", null);
+            menu.AddSub("Third", null);
       // configure user control 
       // - joystick control & grid navigation
 

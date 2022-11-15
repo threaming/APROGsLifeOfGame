@@ -12,6 +12,7 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\GpioHAT\GpioHAT.csproj" />
+	  <ProjectReference Include="..\Menu\Menu.csproj" />
 	</ItemGroup>
 
 </Project>
