@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\APROGsLifeOfGame"
+    "\\APROGsLifeOfGame",
+    "\\APROGsLifeOfGame\\LifeOfGame",
+    "\\APROGsLifeOfGame\\Menu"
   ],
-  "SelectedNode": "\\APROGsLifeOfGame\\APROGsLifeOfGame.sln",
+  "SelectedNode": "\\APROGsLifeOfGame\\LifeOfGame\\Program.cs",
   "PreviewInSolutionExplorer": false
 }

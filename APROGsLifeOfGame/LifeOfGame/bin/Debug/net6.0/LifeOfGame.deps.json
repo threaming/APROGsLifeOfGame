@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v6.0": {
       "LifeOfGame/1.0.0": {
         "dependencies": {
-          "GpioHAT": "1.0.0"
+          "GpioHAT": "1.0.0",
+          "Menu": "1.0.0"
         },
         "runtime": {
           "LifeOfGame.dll": {}
@@ -29,6 +30,11 @@
         "runtime": {
           "GpioHAT.dll": {}
         }
+      },
+      "Menu/1.0.0": {
+        "runtime": {
+          "Menu.dll": {}
+        }
       }
     }
   },
@@ -46,6 +52,11 @@
       "hashPath": "system.device.gpio.2.2.0.nupkg.sha512"
     },
     "GpioHAT/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Menu/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

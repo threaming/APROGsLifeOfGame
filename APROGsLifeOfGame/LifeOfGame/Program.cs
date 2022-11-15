@@ -2,6 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading;
+using GpioHAT;
 using MenuSpace;
 
 
@@ -36,10 +37,11 @@ namespace LifeOfGame
     
     static void Main(string[] args)
     {
-            // Add a menu
-            Menu menu = new Menu("Top", null);
-            menu.AddSub("Second", null);
-            menu.AddSub("Third", null);
+      // Add a menu
+      Menu menu = new Menu("Top", null);
+      menu.AddSub("Second", null);
+      menu.AddSub("Third", null);
+
       // configure user control 
       // - joystick control & grid navigation
 
@@ -52,7 +54,16 @@ namespace LifeOfGame
       PopulateRandom(grid);
       int generation = 0;
       Console.CursorVisible = false;
-      Console.WriteLine("aprog's GAME OF LIFE ä");
+      Console.WriteLine("aprog's GAME OF LIFE");
+
+      Util.WriteColored("Press <ENTER> to start!", ConsoleColor.Yellow);
+      while (true)
+      {
+        if (Console.KeyAvailable)
+        {
+          if (Console.ReadKey().Key == ConsoleKey.Enter) break;
+        }
+      }
       while (true)
       {
         Console.SetCursorPosition(0, 1);
@@ -62,12 +73,12 @@ namespace LifeOfGame
         Thread.Sleep(20);
         NextGeneration(grid, next);
         generation++;
-        Array.Copy(next,grid,next.Length);
+        Array.Copy(next, grid, next.Length);
 
 
-        if(Console.KeyAvailable)
+        if (Console.KeyAvailable)
         {
-          if(Console.ReadKey().Key == ConsoleKey.Enter)
+          if (Console.ReadKey().Key == ConsoleKey.Escape)
           {
             break;
           }
@@ -88,7 +99,7 @@ namespace LifeOfGame
     }
 
     static bool[,] NextGeneration(bool[,] current, bool[,] next)
-    { 
+    {
       for (int y = 0; y < current.GetLength(1); y++)
       {
         for (int x = 0; x < current.GetLength(0); x++)
@@ -98,7 +109,7 @@ namespace LifeOfGame
 
           // 1) Any live cell with two or three live
           // neighbours survives.
-          if ((state && count == 2) || 
+          if ((state && count == 2) ||
               (state && count == 3))
             next[x, y] = true;
           // 2) Any dead cell with three live neighbours
@@ -129,7 +140,7 @@ namespace LifeOfGame
           int col = (x + i + width) % width;
           int row = (y + j + height) % height;
 
-          sum += (array[col, row]) ? 1 : 0 ;
+          sum += (array[col, row]) ? 1 : 0;
         }
       }
       return sum;
@@ -142,7 +153,7 @@ namespace LifeOfGame
       {
         for (int x = 0; x < array.GetLength(0); x++)
         {
-          array[x,y] = (rand.Next(2) == 1);
+          array[x, y] = (rand.Next(2) == 1);
         }
       }
       return array;
@@ -170,5 +181,4 @@ namespace LifeOfGame
       return new bool[width, height];
     }
   }
-
 }

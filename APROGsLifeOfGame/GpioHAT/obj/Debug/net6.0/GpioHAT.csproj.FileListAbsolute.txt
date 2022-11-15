@@ -22,3 +22,15 @@ C:\Users\joelv\source\repos\AndreasMing\APROGsGameOfLife\APROGsLifeOfGame\GpioHA
 C:\Users\joelv\source\repos\AndreasMing\APROGsGameOfLife\APROGsLifeOfGame\GpioHAT\obj\Debug\net6.0\refint\GpioHAT.dll
 C:\Users\joelv\source\repos\AndreasMing\APROGsGameOfLife\APROGsLifeOfGame\GpioHAT\obj\Debug\net6.0\GpioHAT.pdb
 C:\Users\joelv\source\repos\AndreasMing\APROGsGameOfLife\APROGsLifeOfGame\GpioHAT\obj\Debug\net6.0\ref\GpioHAT.dll
+C:\Users\Joel\Source\Repos\AndreasMing\APROGsLifeOfGame\APROGsLifeOfGame\GpioHAT\bin\Debug\net6.0\GpioHAT.deps.json
+C:\Users\Joel\Source\Repos\AndreasMing\APROGsLifeOfGame\APROGsLifeOfGame\GpioHAT\bin\Debug\net6.0\GpioHAT.dll
+C:\Users\Joel\Source\Repos\AndreasMing\APROGsLifeOfGame\APROGsLifeOfGame\GpioHAT\bin\Debug\net6.0\GpioHAT.pdb
+C:\Users\Joel\Source\Repos\AndreasMing\APROGsLifeOfGame\APROGsLifeOfGame\GpioHAT\obj\Debug\net6.0\GpioHAT.csproj.AssemblyReference.cache
+C:\Users\Joel\Source\Repos\AndreasMing\APROGsLifeOfGame\APROGsLifeOfGame\GpioHAT\obj\Debug\net6.0\GpioHAT.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Joel\Source\Repos\AndreasMing\APROGsLifeOfGame\APROGsLifeOfGame\GpioHAT\obj\Debug\net6.0\GpioHAT.AssemblyInfoInputs.cache
+C:\Users\Joel\Source\Repos\AndreasMing\APROGsLifeOfGame\APROGsLifeOfGame\GpioHAT\obj\Debug\net6.0\GpioHAT.AssemblyInfo.cs
+C:\Users\Joel\Source\Repos\AndreasMing\APROGsLifeOfGame\APROGsLifeOfGame\GpioHAT\obj\Debug\net6.0\GpioHAT.csproj.CoreCompileInputs.cache
+C:\Users\Joel\Source\Repos\AndreasMing\APROGsLifeOfGame\APROGsLifeOfGame\GpioHAT\obj\Debug\net6.0\GpioHAT.dll
+C:\Users\Joel\Source\Repos\AndreasMing\APROGsLifeOfGame\APROGsLifeOfGame\GpioHAT\obj\Debug\net6.0\refint\GpioHAT.dll
+C:\Users\Joel\Source\Repos\AndreasMing\APROGsLifeOfGame\APROGsLifeOfGame\GpioHAT\obj\Debug\net6.0\GpioHAT.pdb
+C:\Users\Joel\Source\Repos\AndreasMing\APROGsLifeOfGame\APROGsLifeOfGame\GpioHAT\obj\Debug\net6.0\ref\GpioHAT.dll
