@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+using System.Threading;
 
 
 
@@ -28,6 +31,7 @@ namespace LifeOfGame
 {
   internal class Program
   {
+    const int height = 30, width = 60;
     static void Main(string[] args)
     {
       // configure user control 
@@ -35,6 +39,20 @@ namespace LifeOfGame
 
       // create grid
       // populate grid via templates or start with blank version
+      bool[,] grid = Create2DArray(width, height);
+      bool[,] next = Create2DArray(width, height);
+
+      //populate first generation
+      PopulateRandom(grid);
+
+      while(true)
+      {
+        PrintArray(grid);
+        Thread.Sleep(100);
+        NextGeneration(grid, next);
+        Array.Copy(next,grid,next.Length);
+        Console.SetCursorPosition(0, 0);
+      }
 
       // draw grid
 
@@ -44,8 +62,92 @@ namespace LifeOfGame
       // - decide on killing or creating the respective Cell
 
 
-      GameOfLife game = new GameOfLife();
-      Console.WriteLine("o");
+      //GameOfLife game = new GameOfLife();
+      //Console.WriteLine("o");
+    }
+
+    static bool[,] NextGeneration(bool[,] current, bool[,] next)
+    { 
+      for (int y = 0; y < current.GetLength(1); y++)
+      {
+        for (int x = 0; x < current.GetLength(0); x++)
+        {
+          int count = CountNeighbours(current, x, y);
+          bool state = current[x, y];
+
+          // 1) Any live cell with two or three live
+          // neighbours survives.
+          if ((state && count == 2) || 
+              (state && count == 3))
+            next[x, y] = true;
+          // 2) Any dead cell with three live neighbours
+          // becomes a live cell.
+          else if (!state && count == 3)
+            next[x, y] = true;
+          // 3) All other live cells die in the next generation.
+          // Similarly, all other dead cells stay dead.
+          else
+            next[x, y] = false;
+        }
+      }
+      return next;
+    }
+
+    static int CountNeighbours(bool[,] array, int x, int y)
+    {
+      int sum = 0;
+      int width = array.GetLength(0);
+      int height = array.GetLength(1);
+      //
+      for (int i = -1; i < 2; i++)
+      {
+        for (int j = -1; j < 2; j++)
+        {
+          if (i == 0 && j == 0) continue;
+
+          int col = (x + i + width) % width;
+          int row = (y + j + height) % height;
+
+          sum += (array[col, row]) ? 1 : 0 ;
+        }
+      }
+      return sum;
+    }
+
+    static bool[,] PopulateRandom(bool[,] array)
+    {
+      Random rand = new Random();
+      for (int y = 0; y < array.GetLength(1); y++)
+      {
+        for (int x = 0; x < array.GetLength(0); x++)
+        {
+          array[x,y] = (rand.Next(2) == 1);
+        }
+      }
+      return array;
+    }
+
+    static void PrintArray(bool[,] array)
+    {
+      string str = "";
+      str += ("+" + String.Concat(Enumerable.Repeat("-", array.GetLength(0))) + "+\n");
+      for (int y = 0; y < array.GetLength(1); y++)
+      {
+        str += ("|");
+        for (int x = 0; x < array.GetLength(0); x++)
+        {
+          str += ((array[x, y]) ? "x" : " ");
+        }
+        str += ("|\n");
+      }
+      str += ("+" + String.Concat(Enumerable.Repeat("-", array.GetLength(0))) + "+");
+      Console.WriteLine(str);
+    }
+
+    static bool[,] Create2DArray(int width, int height)
+    {
+      return new bool[width, height];
     }
   }
+
 }
