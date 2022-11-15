@@ -31,7 +31,8 @@ namespace LifeOfGame
 {
   internal class Program
   {
-    const int height = 30, width = 60;
+    const int height = 50, width = 80;
+    
     static void Main(string[] args)
     {
       // configure user control 
@@ -44,15 +45,30 @@ namespace LifeOfGame
 
       //populate first generation
       PopulateRandom(grid);
-
-      while(true)
+      int generation = 0;
+      Console.CursorVisible = false;
+      Console.WriteLine("aprog's GAME OF LIFE ä");
+      while (true)
       {
+        Console.SetCursorPosition(0, 1);
         PrintArray(grid);
-        Thread.Sleep(100);
+        Console.WriteLine($"Generation: {generation}");
+
+        Thread.Sleep(20);
         NextGeneration(grid, next);
+        generation++;
         Array.Copy(next,grid,next.Length);
-        Console.SetCursorPosition(0, 0);
+
+
+        if(Console.KeyAvailable)
+        {
+          if(Console.ReadKey().Key == ConsoleKey.Enter)
+          {
+            break;
+          }
+        }
       }
+      Console.WriteLine("Simulation stopped");
 
       // draw grid
 
@@ -136,7 +152,7 @@ namespace LifeOfGame
         str += ("|");
         for (int x = 0; x < array.GetLength(0); x++)
         {
-          str += ((array[x, y]) ? "x" : " ");
+          str += ((array[x, y]) ? "ä" : " ");
         }
         str += ("|\n");
       }
