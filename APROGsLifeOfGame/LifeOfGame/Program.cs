@@ -34,9 +34,23 @@ namespace LifeOfGame
   internal class Program
   {
     const int height = 50, width = 80;
-    
+    static bool gameExit = false;
+    enum GameStates
+	  {
+      SIMULATION_STOP = 0,
+      SIMULATION_START,
+      SIMULATION_NEXT,
+      SIMULATION_EXIT,
+      EDITOR_ENTER,
+      EDITOR_EXIT
+	  }
+
     static void Main(string[] args)
     {
+      // [INITALIZE]
+      GameStates gameState = GameStates.SIMULATION_STOP;
+      
+
       // Add a menu
       Menu menu = new Menu("Top", null);
       menu.AddSub("Second", null);
@@ -54,37 +68,67 @@ namespace LifeOfGame
       PopulateRandom(grid);
       int generation = 0;
       Console.CursorVisible = false;
+      Console.SetWindowSize(width + 3, height + 6);
       Console.WriteLine("aprog's GAME OF LIFE");
-
-      Util.WriteColored("Press <ENTER> to start!", ConsoleColor.Yellow);
-      while (true)
-      {
-        if (Console.KeyAvailable)
-        {
-          if (Console.ReadKey().Key == ConsoleKey.Enter) break;
-        }
-      }
-      while (true)
+      while (!gameExit)
       {
         Console.SetCursorPosition(0, 1);
         PrintArray(grid);
         Console.WriteLine($"Generation: {generation}");
-
-        Thread.Sleep(20);
-        NextGeneration(grid, next);
-        generation++;
-        Array.Copy(next, grid, next.Length);
-
-
-        if (Console.KeyAvailable)
+        // state Machine Simulation
+        switch(gameState)
         {
-          if (Console.ReadKey().Key == ConsoleKey.Escape)
-          {
+          case GameStates.SIMULATION_STOP:
+            Util.WriteColored("(stopped)", ConsoleColor.Red, false);
+            Util.WriteColored("[SPACE] next gen. - [ENTER] start simulation - [ESC] exit", ConsoleColor.Blue);
+
+            if (Console.KeyAvailable)
+            {
+              ConsoleKey key = Console.ReadKey().Key;
+              if (key == ConsoleKey.Spacebar)
+              {
+                gameState = GameStates.SIMULATION_NEXT;
+              }
+              else if (key == ConsoleKey.Enter)
+                gameState = GameStates.SIMULATION_START;
+              else if (key == ConsoleKey.Escape)
+                gameState = GameStates.SIMULATION_EXIT;
+            }
             break;
-          }
+          case GameStates.SIMULATION_START:
+            NextGeneration(grid, next);
+            generation++;
+            Array.Copy(next, grid, next.Length);
+            Thread.Sleep(100);
+
+            // Update Screen
+            Util.WriteColored("[ESC] stop                                                        ", ConsoleColor.Blue, true);
+            if (Console.KeyAvailable)
+            {
+              ConsoleKey key = Console.ReadKey().Key;
+              if (key == ConsoleKey.Escape)
+              {
+                gameState = GameStates.SIMULATION_STOP;
+              }
+            }
+            break;
+          case GameStates.SIMULATION_NEXT:
+            Util.WriteColored("(generating)                                                       ", ConsoleColor.Yellow, false);
+            NextGeneration(grid, next);
+            generation++;
+            Array.Copy(next, grid, next.Length);
+            Thread.Sleep(100);
+            gameState = GameStates.SIMULATION_STOP;
+
+            break;
+          case GameStates.SIMULATION_EXIT:
+            gameExit = true;
+            break;
         }
+
+        
       }
-      Console.WriteLine("Simulation stopped");
+      Console.WriteLine(" Simulation stopped");
 
       // draw grid
 

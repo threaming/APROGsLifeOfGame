@@ -38,3 +38,5 @@ C:\Users\Joel\Source\Repos\AndreasMing\APROGsLifeOfGame\APROGsLifeOfGame\LifeOfG
 C:\Users\Joel\Source\Repos\AndreasMing\APROGsLifeOfGame\APROGsLifeOfGame\LifeOfGame\obj\Debug\net6.0\ref\LifeOfGame.dll
 C:\Users\Joel\Source\Repos\AndreasMing\APROGsLifeOfGame\APROGsLifeOfGame\LifeOfGame\bin\Debug\net6.0\Menu.dll
 C:\Users\Joel\Source\Repos\AndreasMing\APROGsLifeOfGame\APROGsLifeOfGame\LifeOfGame\bin\Debug\net6.0\Menu.pdb
+C:\Users\joelv\Source\Repos\AndreasMing\APROGsGameOfLife\APROGsLifeOfGame\LifeOfGame\bin\Debug\net6.0\Menu.dll
+C:\Users\joelv\Source\Repos\AndreasMing\APROGsGameOfLife\APROGsLifeOfGame\LifeOfGame\bin\Debug\net6.0\Menu.pdb

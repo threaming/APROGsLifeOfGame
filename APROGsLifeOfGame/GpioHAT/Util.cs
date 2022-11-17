@@ -62,5 +62,17 @@ namespace GpioHAT
       }
       return false;
     }
+
+    public static bool IsKeyActive(ConsoleKey key)
+    {
+      if (Console.KeyAvailable)
+      {
+        if (Console.ReadKey().Key == key)
+        {
+          return true;
+        }
+      }
+      return false;
+    }
   }
 }

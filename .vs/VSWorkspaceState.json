@@ -2,9 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\APROGsLifeOfGame",
-    "\\APROGsLifeOfGame\\LifeOfGame",
-    "\\APROGsLifeOfGame\\Menu"
+    "\\APROGsLifeOfGame\\GpioHAT",
+    "\\APROGsLifeOfGame\\LifeOfGame"
   ],
-  "SelectedNode": "\\APROGsLifeOfGame\\LifeOfGame\\Program.cs",
+  "SelectedNode": "\\APROGsLifeOfGame\\APROGsLifeOfGame.sln",
   "PreviewInSolutionExplorer": false
 }

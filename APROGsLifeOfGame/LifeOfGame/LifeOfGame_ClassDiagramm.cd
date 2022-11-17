@@ -3,7 +3,7 @@
   <Class Name="LifeOfGame.Program" Collapsed="true">
     <Position X="4.25" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <HashCode>AAAAACAAAAAAAAQAQAIABAAAAAAAAAACAAAABAAACAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -17,7 +17,7 @@
   <Class Name="LifeOfGame.GameOfLife" Collapsed="true">
     <Position X="4.25" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAQAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAQAAAAAAAAAA=</HashCode>
       <FileName>GameOfLife.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -28,11 +28,11 @@
       <FileName>Scoreboard.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="LifeOfGame.Util">
-    <Position X="4.25" Y="3.25" Width="1.5" />
+  <Class Name="LifeOfGame.Object">
+    <Position X="4.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Util.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAA=</HashCode>
+      <FileName>Object.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
