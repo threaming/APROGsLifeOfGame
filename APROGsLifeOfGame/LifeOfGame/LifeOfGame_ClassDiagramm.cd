@@ -3,7 +3,7 @@
   <Class Name="LifeOfGame.Program" Collapsed="true">
     <Position X="4.25" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAAACAAAAAAAgQAQAIABAAAAAAAAAACAAAABAAACAA=</HashCode>
+      <HashCode>AQAAACAAAAEAAgUAQAIABAAABAAAAAACAAAABAABCAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -31,30 +31,51 @@
   <Class Name="LifeOfGame.Object">
     <Position X="4.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAQAQAIAAAAAAAAAAAAIAABgAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAQAQAIAAAAAAAAAAACIAABgAAAAAAA=</HashCode>
       <FileName>Object.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LifeOfGame.Border">
-    <Position X="6" Y="3.25" Width="1.5" />
+    <Position X="8.25" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Border.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LifeOfGame.Text">
-    <Position X="7.75" Y="4.5" Width="1.5" />
+    <Position X="10" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAACIAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAIAAAgAAAAAAA=</HashCode>
       <FileName>Text.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LifeOfGame.Playground">
     <Position X="6.5" Y="7" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAACIAAAAAAAAAAA=</HashCode>
+      <HashCode>AgAAAAAAAIAAABAAAAIABACCAAAACAAAAAAQAAAACBA=</HashCode>
       <FileName>Playground.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="LifeOfGame.Cursor">
+    <Position X="10" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAgAAAAAAAAAAAAAAAIGAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Cursor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="LifeOfGame.CursorDirection">
+    <Position X="2" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAICAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>CursorDirection.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="LifeOfGame.PlaygroundPattern">
+    <Position X="2" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>PlaygroundPattern.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

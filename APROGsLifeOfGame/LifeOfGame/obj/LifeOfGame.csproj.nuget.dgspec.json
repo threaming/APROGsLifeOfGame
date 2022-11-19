@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\joelv\\Source\\Repos\\AndreasMing\\APROGsGameOfLife\\APROGsLifeOfGame\\LifeOfGame\\LifeOfGame.csproj": {}
+    "C:\\Users\\Joel\\Source\\Repos\\AndreasMing\\APROGsLifeOfGame\\APROGsLifeOfGame\\LifeOfGame\\LifeOfGame.csproj": {}
   },
   "projects": {
-    "C:\\Users\\joelv\\Source\\Repos\\AndreasMing\\APROGsGameOfLife\\APROGsLifeOfGame\\GpioHAT\\GpioHAT.csproj": {
+    "C:\\Users\\Joel\\Source\\Repos\\AndreasMing\\APROGsLifeOfGame\\APROGsLifeOfGame\\GpioHAT\\GpioHAT.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\joelv\\Source\\Repos\\AndreasMing\\APROGsGameOfLife\\APROGsLifeOfGame\\GpioHAT\\GpioHAT.csproj",
+        "projectUniqueName": "C:\\Users\\Joel\\Source\\Repos\\AndreasMing\\APROGsLifeOfGame\\APROGsLifeOfGame\\GpioHAT\\GpioHAT.csproj",
         "projectName": "GpioHAT",
-        "projectPath": "C:\\Users\\joelv\\Source\\Repos\\AndreasMing\\APROGsGameOfLife\\APROGsLifeOfGame\\GpioHAT\\GpioHAT.csproj",
-        "packagesPath": "C:\\Users\\joelv\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\joelv\\Source\\Repos\\AndreasMing\\APROGsGameOfLife\\APROGsLifeOfGame\\GpioHAT\\obj\\",
+        "projectPath": "C:\\Users\\Joel\\Source\\Repos\\AndreasMing\\APROGsLifeOfGame\\APROGsLifeOfGame\\GpioHAT\\GpioHAT.csproj",
+        "packagesPath": "C:\\Users\\Joel\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Joel\\Source\\Repos\\AndreasMing\\APROGsLifeOfGame\\APROGsLifeOfGame\\GpioHAT\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\joelv\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Joel\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -61,21 +61,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\joelv\\Source\\Repos\\AndreasMing\\APROGsGameOfLife\\APROGsLifeOfGame\\LifeOfGame\\LifeOfGame.csproj": {
+    "C:\\Users\\Joel\\Source\\Repos\\AndreasMing\\APROGsLifeOfGame\\APROGsLifeOfGame\\LifeOfGame\\LifeOfGame.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\joelv\\Source\\Repos\\AndreasMing\\APROGsGameOfLife\\APROGsLifeOfGame\\LifeOfGame\\LifeOfGame.csproj",
+        "projectUniqueName": "C:\\Users\\Joel\\Source\\Repos\\AndreasMing\\APROGsLifeOfGame\\APROGsLifeOfGame\\LifeOfGame\\LifeOfGame.csproj",
         "projectName": "LifeOfGame",
-        "projectPath": "C:\\Users\\joelv\\Source\\Repos\\AndreasMing\\APROGsGameOfLife\\APROGsLifeOfGame\\LifeOfGame\\LifeOfGame.csproj",
-        "packagesPath": "C:\\Users\\joelv\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\joelv\\Source\\Repos\\AndreasMing\\APROGsGameOfLife\\APROGsLifeOfGame\\LifeOfGame\\obj\\",
+        "projectPath": "C:\\Users\\Joel\\Source\\Repos\\AndreasMing\\APROGsLifeOfGame\\APROGsLifeOfGame\\LifeOfGame\\LifeOfGame.csproj",
+        "packagesPath": "C:\\Users\\Joel\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Joel\\Source\\Repos\\AndreasMing\\APROGsLifeOfGame\\APROGsLifeOfGame\\LifeOfGame\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\joelv\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Joel\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -89,11 +89,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\joelv\\Source\\Repos\\AndreasMing\\APROGsGameOfLife\\APROGsLifeOfGame\\GpioHAT\\GpioHAT.csproj": {
-                "projectPath": "C:\\Users\\joelv\\Source\\Repos\\AndreasMing\\APROGsGameOfLife\\APROGsLifeOfGame\\GpioHAT\\GpioHAT.csproj"
+              "C:\\Users\\Joel\\Source\\Repos\\AndreasMing\\APROGsLifeOfGame\\APROGsLifeOfGame\\GpioHAT\\GpioHAT.csproj": {
+                "projectPath": "C:\\Users\\Joel\\Source\\Repos\\AndreasMing\\APROGsLifeOfGame\\APROGsLifeOfGame\\GpioHAT\\GpioHAT.csproj"
               },
-              "C:\\Users\\joelv\\Source\\Repos\\AndreasMing\\APROGsGameOfLife\\APROGsLifeOfGame\\Menu\\Menu.csproj": {
-                "projectPath": "C:\\Users\\joelv\\Source\\Repos\\AndreasMing\\APROGsGameOfLife\\APROGsLifeOfGame\\Menu\\Menu.csproj"
+              "C:\\Users\\Joel\\Source\\Repos\\AndreasMing\\APROGsLifeOfGame\\APROGsLifeOfGame\\Menu\\Menu.csproj": {
+                "projectPath": "C:\\Users\\Joel\\Source\\Repos\\AndreasMing\\APROGsLifeOfGame\\APROGsLifeOfGame\\Menu\\Menu.csproj"
               }
             }
           }
@@ -123,21 +123,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\joelv\\Source\\Repos\\AndreasMing\\APROGsGameOfLife\\APROGsLifeOfGame\\Menu\\Menu.csproj": {
+    "C:\\Users\\Joel\\Source\\Repos\\AndreasMing\\APROGsLifeOfGame\\APROGsLifeOfGame\\Menu\\Menu.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\joelv\\Source\\Repos\\AndreasMing\\APROGsGameOfLife\\APROGsLifeOfGame\\Menu\\Menu.csproj",
+        "projectUniqueName": "C:\\Users\\Joel\\Source\\Repos\\AndreasMing\\APROGsLifeOfGame\\APROGsLifeOfGame\\Menu\\Menu.csproj",
         "projectName": "Menu",
-        "projectPath": "C:\\Users\\joelv\\Source\\Repos\\AndreasMing\\APROGsGameOfLife\\APROGsLifeOfGame\\Menu\\Menu.csproj",
-        "packagesPath": "C:\\Users\\joelv\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\joelv\\Source\\Repos\\AndreasMing\\APROGsGameOfLife\\APROGsLifeOfGame\\Menu\\obj\\",
+        "projectPath": "C:\\Users\\Joel\\Source\\Repos\\AndreasMing\\APROGsLifeOfGame\\APROGsLifeOfGame\\Menu\\Menu.csproj",
+        "packagesPath": "C:\\Users\\Joel\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Joel\\Source\\Repos\\AndreasMing\\APROGsLifeOfGame\\APROGsLifeOfGame\\Menu\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\joelv\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Joel\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -178,7 +178,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

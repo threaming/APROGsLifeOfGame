@@ -41,5 +41,13 @@ namespace GpioHAT
         this.gpioControl.OpenPin(pin, PinMode.InputPullUp);
       }
     }
+
+    public void AttachEvent(PinEventTypes eventType, PinChangeEventHandler callback)
+    {
+      foreach (int pinNumber in pins.Values)
+      {
+        this.gpioControl.RegisterCallbackForPinValueChangedEvent(pinNumber, eventType, callback);
+      }
+    }
   }
 }

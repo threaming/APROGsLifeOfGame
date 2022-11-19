@@ -8,11 +8,9 @@ namespace LifeOfGame
 {
   public class Border : Object
   {
-    ConsoleColor color;
 
-    public Border(int x, int y, int width, int height, ConsoleColor color, bool visible = true) : base(x, y, width, height)
+    public Border(int x, int y, int width, int height, ConsoleColor color, bool visible = true) : base(x, y, width, height, color)
     {
-      this.color = color;
       this.Visible = visible;
     }
 

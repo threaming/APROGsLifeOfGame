@@ -1,9 +1,10 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
+﻿
+using System;
 using System.Linq;
 using System.Threading;
 using GpioHAT;
 using MenuSpace;
+using System.Device.Gpio;
 
 
 
@@ -29,12 +30,19 @@ using MenuSpace;
  */
 
 
+
+
 namespace LifeOfGame
 {
   internal class Program
   {
     const int height = 20, width = 20;
     static bool gameExit = false;
+
+    static JoystickDirect joystick = (JoystickDirect)Raspberry.Instance.Joystick;
+    static Cursor cursor = new Cursor(1, 2, width, height, ConsoleColor.Red);
+    static Playground playground = new Playground(new bool[width, height], 1, 2, ConsoleColor.White);
+    
     enum GameStates
 	  {
       SIMULATION_STOP = 0,
@@ -45,8 +53,33 @@ namespace LifeOfGame
       EDITOR_EXIT
 	  }
 
+    static void InputHandler(object sender, PinValueChangedEventArgs eventArgs)
+    {
+      // Button Pressed
+      switch(joystick.State)
+      {
+        case JoystickButtons.LEFT:
+          cursor.moveCursor(CursorDirection.LEFT);
+          break;
+        case JoystickButtons.RIGHT:
+          cursor.moveCursor(CursorDirection.RIGHT);
+          break;
+        case JoystickButtons.CENTER:
+          playground.ToggleDot(cursor.relx, cursor.rely);
+          break;
+        case JoystickButtons.UP:
+          cursor.moveCursor(CursorDirection.UP);
+          break;
+        case JoystickButtons.DOWN:
+          cursor.moveCursor(CursorDirection.DOWN);
+          break;
+      }
+    }
+
     static void Main(string[] args)
     {
+      Util.WaitForDebugger();
+
       // [INITALIZE]
       GameStates gameState = GameStates.SIMULATION_STOP;
 
@@ -54,8 +87,11 @@ namespace LifeOfGame
       // "Game" Objects
       Border border = new Border(0, 1, width+2, height+2, ConsoleColor.DarkGray);
       Text title = new Text("aprog's GAME OF LIFE", 0, 0, ConsoleColor.Yellow);
-      Playground playground = new Playground(new bool[width,height], 1, 2, ConsoleColor.White);
       Text info = new Text("generation: ",1,height + 3);
+      
+
+      joystick.AttachEvent(PinEventTypes.Falling, InputHandler);
+
 
       // Add a menu
       Menu menu = new Menu("Top", null);
@@ -68,109 +104,44 @@ namespace LifeOfGame
       // create grid
       // populate grid via templates or start with blank version
 
-      Console.CursorVisible = false;
-      Console.SetWindowSize(width + 10, height + 10);
 
+
+      Console.CursorVisible = false;
+      Console.Clear();
+      if(System.OperatingSystem.IsWindows())
+      {
+        Console.SetWindowSize(width + 10, height + 10);
+      }
 
       title.draw();
       border.draw();
+      bool startLoop = false;
       while (!gameExit)
       {
         playground.draw();
+        cursor.draw();
         info.draw();
-        Thread.Sleep(50);
-        playground.next();
-        info.Value = $"Generation: {playground.Generation}";
+        Thread.Sleep(100);
 
-        if (Console.KeyAvailable)
+        if (startLoop)
         {
-          ConsoleKey key = Console.ReadKey().Key;
-          if (key == ConsoleKey.Spacebar)
+          playground.Next();
+        }
+
+        if(Console.KeyAvailable)
+        {
+          if(Console.ReadKey(true).Key == ConsoleKey.Enter)
           {
-            gameState = GameStates.SIMULATION_NEXT;
-          }
-          else if (key == ConsoleKey.Enter)
-            gameState = GameStates.SIMULATION_START;
-          else if (key == ConsoleKey.Escape)
-          {
-            gameState = GameStates.SIMULATION_EXIT;
-            gameExit = true;
+            startLoop = !startLoop;
           }
         }
+        info.Value = $"Generation: {playground.Generation}";
       }
       playground.cleardraw();
-      while (true) ;
-
-      /*while (!gameExit)
-      {
-        Console.SetCursorPosition(0, 1);
-        PrintArray(grid);
-        Console.WriteLine($"Generation: {generation}");
-        // state Machine Simulation
-        switch(gameState)
-        {
-          case GameStates.SIMULATION_STOP:
-            Util.WriteColored("(stopped)", ConsoleColor.Red, false);
-            Util.WriteColored("[SPACE] next gen. - [ENTER] start simulation - [ESC] exit", ConsoleColor.Blue);
-
-            if (Console.KeyAvailable)
-            {
-              ConsoleKey key = Console.ReadKey().Key;
-              if (key == ConsoleKey.Spacebar)
-              {
-                gameState = GameStates.SIMULATION_NEXT;
-              }
-              else if (key == ConsoleKey.Enter)
-                gameState = GameStates.SIMULATION_START;
-              else if (key == ConsoleKey.Escape)
-                gameState = GameStates.SIMULATION_EXIT;
-            }
-            break;
-          case GameStates.SIMULATION_START:
-            NextGeneration(grid, next);
-            generation++;
-            Array.Copy(next, grid, next.Length);
-            Thread.Sleep(100);
-
-            // Update Screen
-            Util.WriteColored("[ESC] stop                                                        ", ConsoleColor.Blue, true);
-            if (Console.KeyAvailable)
-            {
-              ConsoleKey key = Console.ReadKey().Key;
-              if (key == ConsoleKey.Escape)
-              {
-                gameState = GameStates.SIMULATION_STOP;
-              }
-            }
-            break;
-          case GameStates.SIMULATION_NEXT:
-            Util.WriteColored("(generating)                                                       ", ConsoleColor.Yellow, false);
-            NextGeneration(grid, next);
-            generation++;
-            Array.Copy(next, grid, next.Length);
-            Thread.Sleep(100);
-            gameState = GameStates.SIMULATION_STOP;
-
-            break;
-          case GameStates.SIMULATION_EXIT:
-            gameExit = true;
-            break;
-        }
-
-        
-      }
-      Console.WriteLine(" Simulation stopped");
-
-      // draw grid
-
-      // calculate next generation
-      // - calculate each cells neighbor sum and compare with rules
-
-      // - decide on killing or creating the respective Cell
 
 
       //GameOfLife game = new GameOfLife();
-      //Console.WriteLine("o");*/
+      //Console.WriteLine("o");
     }
 
     static bool[,] NextGeneration(bool[,] current, bool[,] next)

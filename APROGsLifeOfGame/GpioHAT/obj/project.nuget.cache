@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "s/qlecHfPlmrVKhdsJMUgqoESi/ybwaeyxqVIU8+ccwkpBPwWV6RrLXMTgSkDpGgyXRkHrM7JmmizIGVobTm3g==",
+  "dgSpecHash": "lzVJJ9suBkz0nHhubE+GFGzUDwy3OUQ8D6LhXXq4AtD3Xr5F9nypfe3PjrfKcTk4/JLXCIx9GkWag29kZN6A2Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\joelv\\Source\\Repos\\AndreasMing\\APROGsGameOfLife\\APROGsLifeOfGame\\GpioHAT\\GpioHAT.csproj",
+  "projectFilePath": "C:\\Users\\Joel\\Source\\Repos\\AndreasMing\\APROGsLifeOfGame\\APROGsLifeOfGame\\GpioHAT\\GpioHAT.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\joelv\\.nuget\\packages\\system.device.gpio\\2.2.0\\system.device.gpio.2.2.0.nupkg.sha512"
+    "C:\\Users\\Joel\\.nuget\\packages\\system.device.gpio\\2.2.0\\system.device.gpio.2.2.0.nupkg.sha512"
   ],
   "logs": []
 }

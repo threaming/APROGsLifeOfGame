@@ -7,7 +7,7 @@
   </PropertyGroup>
 
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
-		<Exec Command="if &quot;$(ConfigurationName)&quot; == Debug (&#xD;&#xA;cd &quot;$(TargetDir)&quot;&#xD;&#xA;&quot;$(SolutionDir)\SecureUpload.exe&quot; . pi-hslu:netcore/$(ProjectName)&#xD;&#xA;)" />
+		<Exec Command="cd &quot;$(TargetDir)&quot;&#xD;&#xA;&quot;$(SolutionDir)\SecureUpload.exe&quot; . pi-hslu:netcore/$(ProjectName)" />
 	</Target>
 
 	<ItemGroup>

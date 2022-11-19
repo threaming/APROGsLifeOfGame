@@ -10,21 +10,41 @@ namespace LifeOfGame
   public class Playground : Object
   {
 
-    ConsoleColor color;
     public bool[,] data { get; protected set; }
     public int Generation { get; protected set; }
 
-    public Playground(bool[,] data, int x, int y, ConsoleColor color, bool visible = true) : base(x, y, data.GetLength(0), data.GetLength(1))
+    public Playground(bool[,] data, int x, int y, ConsoleColor color, bool visible = true) : base(x, y, data.GetLength(0), data.GetLength(1), color)
     {
       this.Generation = 0;
       this.data = data;
-      PopulateRandom(this.data);
-      this.color = color;
+      ClearPattern(this.data);
       this.Visible = visible;
     }
 
+    public void LoadPattern(PlaygroundPattern pattern)
+    {
+      switch(pattern)
+      {
+        case PlaygroundPattern.RANDOM:
+          PopulateRandom(this.data);
+          break;
+        case PlaygroundPattern.CLEAR:
+          ClearPattern(this.data);
+          break;
+      }
+    }
 
-    public void next()
+    public bool GetDot(int x, int y)
+    {
+      return this.data[x,y];
+    }
+
+    public void ToggleDot(int x, int y)
+    {
+      this.data[x, y] = !this.data[x, y];
+    }
+
+    public void Next()
     {
       Generation++;
       bool[,] next = new bool[this.width, this.height];
@@ -53,7 +73,7 @@ namespace LifeOfGame
       data = next;
     }
 
-    static void PopulateRandom(bool[,] array)
+    private static void PopulateRandom(bool[,] array)
     {
       Random rand = new Random();
       for (int y = 0; y < array.GetLength(1); y++)
@@ -61,6 +81,18 @@ namespace LifeOfGame
         for (int x = 0; x < array.GetLength(0); x++)
         {
           array[x, y] = (rand.Next(2) == 1);
+        }
+      }
+    }
+
+    private static void ClearPattern(bool[,] array)
+    {
+      Random rand = new Random();
+      for (int y = 0; y < array.GetLength(1); y++)
+      {
+        for (int x = 0; x < array.GetLength(0); x++)
+        {
+          array[x, y] = false;
         }
       }
     }
@@ -86,18 +118,13 @@ namespace LifeOfGame
 
     public void cleardraw()
     {
-      string str = "";
-      Console.SetCursorPosition(x, y);
-      for (int y = 0; y < height; y++)
+      string str;
+      Console.SetCursorPosition(1, y);
+      for (int y = 0; y < this.height; y++)
       {
-        str = "";
-        for (int x = 0; x < width; x++)
-        {
-          str += "x";
-        }
+        str = new string('x', this.width);
 
-        Console.Write(str);
-        Console.CursorTop += 1;
+        Util.WriteColored(str, this.color);
         Console.CursorLeft = this.x;
       }
     }
@@ -115,8 +142,7 @@ namespace LifeOfGame
           str += ((data[x, y]) ? "ä" : " ");
         }
 
-        Console.Write(str);
-        Console.CursorTop += 1;
+        Util.WriteColored(str, this.color);
         Console.CursorLeft = this.x;
       }
     }
