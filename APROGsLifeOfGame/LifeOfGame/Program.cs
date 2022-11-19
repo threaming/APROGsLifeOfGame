@@ -33,7 +33,7 @@ namespace LifeOfGame
 {
   internal class Program
   {
-    const int height = 50, width = 80;
+    const int height = 20, width = 20;
     static bool gameExit = false;
     enum GameStates
 	  {
@@ -49,7 +49,13 @@ namespace LifeOfGame
     {
       // [INITALIZE]
       GameStates gameState = GameStates.SIMULATION_STOP;
-      
+
+
+      // "Game" Objects
+      Border border = new Border(0, 1, width+2, height+2, ConsoleColor.DarkGray);
+      Text title = new Text("aprog's GAME OF LIFE", 0, 0, ConsoleColor.Yellow);
+      Playground playground = new Playground(new bool[width,height], 1, 2, ConsoleColor.White);
+      Text info = new Text("generation: ",1,height + 3);
 
       // Add a menu
       Menu menu = new Menu("Top", null);
@@ -61,16 +67,41 @@ namespace LifeOfGame
 
       // create grid
       // populate grid via templates or start with blank version
-      bool[,] grid = Create2DArray(width, height);
-      bool[,] next = Create2DArray(width, height);
 
-      //populate first generation
-      PopulateRandom(grid);
-      int generation = 0;
       Console.CursorVisible = false;
-      Console.SetWindowSize(width + 3, height + 6);
-      Console.WriteLine("aprog's GAME OF LIFE");
+      Console.SetWindowSize(width + 10, height + 10);
+
+
+      title.draw();
+      border.draw();
       while (!gameExit)
+      {
+        playground.draw();
+        info.draw();
+        Thread.Sleep(50);
+        playground.next();
+        info.Value = $"Generation: {playground.Generation}";
+
+        if (Console.KeyAvailable)
+        {
+          ConsoleKey key = Console.ReadKey().Key;
+          if (key == ConsoleKey.Spacebar)
+          {
+            gameState = GameStates.SIMULATION_NEXT;
+          }
+          else if (key == ConsoleKey.Enter)
+            gameState = GameStates.SIMULATION_START;
+          else if (key == ConsoleKey.Escape)
+          {
+            gameState = GameStates.SIMULATION_EXIT;
+            gameExit = true;
+          }
+        }
+      }
+      playground.cleardraw();
+      while (true) ;
+
+      /*while (!gameExit)
       {
         Console.SetCursorPosition(0, 1);
         PrintArray(grid);
@@ -139,7 +170,7 @@ namespace LifeOfGame
 
 
       //GameOfLife game = new GameOfLife();
-      //Console.WriteLine("o");
+      //Console.WriteLine("o");*/
     }
 
     static bool[,] NextGeneration(bool[,] current, bool[,] next)
@@ -205,19 +236,33 @@ namespace LifeOfGame
 
     static void PrintArray(bool[,] array)
     {
-      string str = "";
-      str += ("+" + String.Concat(Enumerable.Repeat("-", array.GetLength(0))) + "+\n");
+      (int curx, int cury) = Console.GetCursorPosition();
       for (int y = 0; y < array.GetLength(1); y++)
       {
-        str += ("|");
+        string str = "";
         for (int x = 0; x < array.GetLength(0); x++)
         {
           str += ((array[x, y]) ? "ä" : " ");
         }
-        str += ("|\n");
+        Console.Write(str);
+        Console.CursorTop += 1;
+        Console.CursorLeft = curx;
+
+      }
+    }
+
+    static void PrintBorder(bool[,] array)
+    {
+      (int curx, int cury) = Console.GetCursorPosition();
+      string str = "";
+      str += ("+" + String.Concat(Enumerable.Repeat("-", array.GetLength(0))) + "+\n");
+      for (int y = 0; y < array.GetLength(1); y++)
+      {
+        str += ("|" + String.Concat(Enumerable.Repeat(" ", array.GetLength(0))) + "|\n");
       }
       str += ("+" + String.Concat(Enumerable.Repeat("-", array.GetLength(0))) + "+");
-      Console.WriteLine(str);
+      Util.WriteColored(str, ConsoleColor.DarkGray);
+      Console.SetCursorPosition(curx, cury);
     }
 
     static bool[,] Create2DArray(int width, int height)

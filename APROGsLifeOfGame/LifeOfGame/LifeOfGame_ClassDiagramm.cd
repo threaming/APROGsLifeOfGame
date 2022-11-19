@@ -3,7 +3,7 @@
   <Class Name="LifeOfGame.Program" Collapsed="true">
     <Position X="4.25" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAACAAAAAAAAQAQAIABAAAAAAAAAACAAAABAAACAA=</HashCode>
+      <HashCode>AQAAACAAAAAAAgQAQAIABAAAAAAAAAACAAAABAAACAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -29,10 +29,31 @@
     </TypeIdentifier>
   </Class>
   <Class Name="LifeOfGame.Object">
-    <Position X="4.5" Y="3.5" Width="1.5" />
+    <Position X="4.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAQAQAIAAAAAAAAAAAAIAABgAAAAAAA=</HashCode>
       <FileName>Object.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LifeOfGame.Border">
+    <Position X="6" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Border.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LifeOfGame.Text">
+    <Position X="7.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAACIAAAAAAAAAAA=</HashCode>
+      <FileName>Text.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LifeOfGame.Playground">
+    <Position X="6.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAACIAAAAAAAAAAA=</HashCode>
+      <FileName>Playground.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

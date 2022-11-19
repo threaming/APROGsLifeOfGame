@@ -7,11 +7,11 @@ namespace LifeOfGame
 {
   public abstract class Object
   {
-    protected int x;
-    protected int y;
+    public int x { get; set; }
+    public int y { get; set; }
     protected int width;
     protected int height;
-    protected bool Visible { get; set; }
+    public bool Visible { get; set; }
 
     protected Object(int x, int y, int width, int height)
     {
@@ -21,6 +21,6 @@ namespace LifeOfGame
       this.height = height;
     }
 
-    protected abstract void render();
+    public abstract void draw();
   }
 }
