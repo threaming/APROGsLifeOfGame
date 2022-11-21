@@ -3,7 +3,7 @@
   <Class Name="LifeOfGame.Program" Collapsed="true">
     <Position X="11.5" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAgEAAAAAACQABAAAAAAAAAAABAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -12,13 +12,6 @@
     <TypeIdentifier>
       <HashCode>CAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAQAAAAAAAAAA=</HashCode>
       <FileName>GameEngine.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="LifeOfGame.GameOfLife" Collapsed="true">
-    <Position X="2" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAQAAAAAAAAAA=</HashCode>
-      <FileName>GameOfLife.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LifeOfGame.Scoreboard" Collapsed="true">
@@ -52,7 +45,7 @@
   <Class Name="LifeOfGame.Playground">
     <Position X="2.25" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgAAAAAAAIAAABAAAAIABACCAAAACAAAAAAQAAAACBA=</HashCode>
+      <HashCode>ggAAAAAAAIAAABAAAAIABACCAAAACAAAAAAQAAAACBA=</HashCode>
       <FileName>Playground.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -61,6 +54,20 @@
     <TypeIdentifier>
       <HashCode>IAgAAAAAAAAAAAAAAAIGAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
       <FileName>Cursor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LifeOfGame.GameOfLife" Collapsed="true">
+    <Position X="2" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAgEAAAQAACQABAgAAAAASAAAAAAAAAA=</HashCode>
+      <FileName>GameOfLife.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LifeOfGame.Menu" Collapsed="true">
+    <Position X="9.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Menu.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Enum Name="LifeOfGame.CursorDirection" Collapsed="true">
@@ -75,6 +82,13 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
       <FileName>PlaygroundPattern.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="LifeOfGame.Device" Collapsed="true">
+    <Position X="9.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Device.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Font Name="Segoe UI" Size="9" />

@@ -82,19 +82,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\joelv\\.nuget\\packages\\": {}
+    "C:\\Users\\andre\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\joelv\\Source\\Repos\\AndreasMing\\APROGsGameOfLife\\APROGsLifeOfGame\\LifeOfGame\\LifeOfGame.csproj",
+      "projectUniqueName": "C:\\Users\\andre\\source\\repos\\APROGsLifeOfGame\\APROGsLifeOfGame\\LifeOfGame\\LifeOfGame.csproj",
       "projectName": "LifeOfGame",
-      "projectPath": "C:\\Users\\joelv\\Source\\Repos\\AndreasMing\\APROGsGameOfLife\\APROGsLifeOfGame\\LifeOfGame\\LifeOfGame.csproj",
-      "packagesPath": "C:\\Users\\joelv\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\joelv\\Source\\Repos\\AndreasMing\\APROGsGameOfLife\\APROGsLifeOfGame\\LifeOfGame\\obj\\",
+      "projectPath": "C:\\Users\\andre\\source\\repos\\APROGsLifeOfGame\\APROGsLifeOfGame\\LifeOfGame\\LifeOfGame.csproj",
+      "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\andre\\source\\repos\\APROGsLifeOfGame\\APROGsLifeOfGame\\LifeOfGame\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\joelv\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -108,11 +108,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\joelv\\Source\\Repos\\AndreasMing\\APROGsGameOfLife\\APROGsLifeOfGame\\GpioHAT\\GpioHAT.csproj": {
-              "projectPath": "C:\\Users\\joelv\\Source\\Repos\\AndreasMing\\APROGsGameOfLife\\APROGsLifeOfGame\\GpioHAT\\GpioHAT.csproj"
+            "C:\\Users\\andre\\source\\repos\\APROGsLifeOfGame\\APROGsLifeOfGame\\GpioHAT\\GpioHAT.csproj": {
+              "projectPath": "C:\\Users\\andre\\source\\repos\\APROGsLifeOfGame\\APROGsLifeOfGame\\GpioHAT\\GpioHAT.csproj"
             },
-            "C:\\Users\\joelv\\Source\\Repos\\AndreasMing\\APROGsGameOfLife\\APROGsLifeOfGame\\Menu\\Menu.csproj": {
-              "projectPath": "C:\\Users\\joelv\\Source\\Repos\\AndreasMing\\APROGsGameOfLife\\APROGsLifeOfGame\\Menu\\Menu.csproj"
+            "C:\\Users\\andre\\source\\repos\\APROGsLifeOfGame\\APROGsLifeOfGame\\Menu\\Menu.csproj": {
+              "projectPath": "C:\\Users\\andre\\source\\repos\\APROGsLifeOfGame\\APROGsLifeOfGame\\Menu\\Menu.csproj"
             }
           }
         }
