@@ -78,29 +78,7 @@ namespace LifeOfGame
       data = next;
     }
 
-    private static void PopulateRandom(bool[,] array)
-    {
-      Random rand = new Random();
-      for (int y = 0; y < array.GetLength(1); y++)
-      {
-        for (int x = 0; x < array.GetLength(0); x++)
-        {
-          array[x, y] = (rand.Next(2) == 1);
-        }
-      }
-    }
-
-    private static void ClearPattern(bool[,] array)
-    {
-      Random rand = new Random();
-      for (int y = 0; y < array.GetLength(1); y++)
-      {
-        for (int x = 0; x < array.GetLength(0); x++)
-        {
-          array[x, y] = false;
-        }
-      }
-    }
+    
 
     private int CountNeighbours(int x, int y)
     {
@@ -184,6 +162,32 @@ namespace LifeOfGame
 
         Util.WriteColored(str, this.color);
         Console.CursorLeft = this.x;
+      }
+    }
+
+
+    // Pattern Functions
+    private static void PopulateRandom(bool[,] array)
+    {
+      Random rand = new Random();
+      for (int y = 0; y < array.GetLength(1); y++)
+      {
+        for (int x = 0; x < array.GetLength(0); x++)
+        {
+          array[x, y] = (rand.Next(2) == 1);
+        }
+      }
+    }
+
+    private static void ClearPattern(bool[,] array)
+    {
+      Random rand = new Random();
+      for (int y = 0; y < array.GetLength(1); y++)
+      {
+        for (int x = 0; x < array.GetLength(0); x++)
+        {
+          array[x, y] = false;
+        }
       }
     }
   }
