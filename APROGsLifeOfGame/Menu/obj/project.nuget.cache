@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mYMl9C9C3CTm2HXcAyV/iP8C+m+F5HZnBUXKJQojHqvQl9esmjYiGEAEpXsnh0P6yGIg58+8wOXFWDw8Y2q4Fw==",
+  "dgSpecHash": "sYVEzf9rDMAmCcBxxF13w6cpo0IBMB6sPsKBIqkBM5PfLEcSE4VnwI2gsqbzsHBxuHnVAGUXPfqqLg7efUwljw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Joel\\Source\\Repos\\AndreasMing\\APROGsLifeOfGame\\APROGsLifeOfGame\\Menu\\Menu.csproj",
+  "projectFilePath": "C:\\Users\\joelv\\Source\\Repos\\AndreasMing\\APROGsGameOfLife\\APROGsLifeOfGame\\Menu\\Menu.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

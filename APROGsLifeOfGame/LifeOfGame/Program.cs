@@ -1,6 +1,7 @@
-﻿
+﻿//#define USE_PI_CONTROLS
+#define USE_COMPUTER_CONTROLS
+
 using System;
-using System.Linq;
 using System.Threading;
 using GpioHAT;
 using MenuSpace;
@@ -36,12 +37,15 @@ namespace LifeOfGame
 {
   internal class Program
   {
-    const int height = 20, width = 20;
+    const int playgroundHeight = 40, playgroundWidth = 40;
     static bool gameExit = false;
 
+#if USE_PI_CONTROLS
     static JoystickDirect joystick = (JoystickDirect)Raspberry.Instance.Joystick;
-    static Cursor cursor = new Cursor(1, 2, width, height, ConsoleColor.Red);
-    static Playground playground = new Playground(new bool[width, height], 1, 2, ConsoleColor.White);
+#endif
+
+    static Cursor cursor = new Cursor(1, 2, playgroundWidth, playgroundHeight, ConsoleColor.Red);
+    static Playground playground = new Playground(new bool[playgroundWidth, playgroundHeight], 1, 2, ConsoleColor.White);
     
     enum GameStates
 	  {
@@ -53,6 +57,7 @@ namespace LifeOfGame
       EDITOR_EXIT
 	  }
 
+#if USE_PI_CONTROLS
     static void InputHandler(object sender, PinValueChangedEventArgs eventArgs)
     {
       // Button Pressed
@@ -75,7 +80,7 @@ namespace LifeOfGame
           break;
       }
     }
-
+#endif
     static void Main(string[] args)
     {
       Util.WaitForDebugger();
@@ -85,13 +90,13 @@ namespace LifeOfGame
 
 
       // "Game" Objects
-      Border border = new Border(0, 1, width+2, height+2, ConsoleColor.DarkGray);
+      Border border = new Border(0, 1, playgroundWidth+2, playgroundHeight+2, ConsoleColor.DarkGray);
       Text title = new Text("aprog's GAME OF LIFE", 0, 0, ConsoleColor.Yellow);
-      Text info = new Text("generation: ",1,height + 3);
-      
+      Text info = new Text("generation: ",1,playgroundHeight + 3);
 
+#if USE_PI_CONTROLS
       joystick.AttachEvent(PinEventTypes.Falling, InputHandler);
-
+#endif
 
       // Add a menu
       Menu menu = new Menu("Top", null);
@@ -104,13 +109,14 @@ namespace LifeOfGame
       // create grid
       // populate grid via templates or start with blank version
 
-
-
       Console.CursorVisible = false;
       Console.Clear();
+
+      // Windows has specific commands to automatically resize the window.
+      // Here it's used to set the minimum size for all the content to fit.
       if(System.OperatingSystem.IsWindows())
       {
-        Console.SetWindowSize(width + 10, height + 10);
+        Console.SetWindowSize(playgroundWidth + 10, playgroundHeight + 10);
       }
 
       title.draw();
@@ -121,124 +127,55 @@ namespace LifeOfGame
         playground.draw();
         cursor.draw();
         info.draw();
-        Thread.Sleep(100);
 
         if (startLoop)
         {
           playground.Next();
         }
 
+#if USE_COMPUTER_CONTROLS
         if(Console.KeyAvailable)
         {
-          if(Console.ReadKey(true).Key == ConsoleKey.Enter)
+          switch(Console.ReadKey(true).Key)
           {
-            startLoop = !startLoop;
+            case ConsoleKey.Enter:
+              startLoop = !startLoop;
+              break;
+            case ConsoleKey.UpArrow:
+              cursor.moveCursor(CursorDirection.UP);
+              break;
+            case ConsoleKey.DownArrow:
+              cursor.moveCursor(CursorDirection.DOWN);
+              break;
+            case ConsoleKey.LeftArrow:
+              cursor.moveCursor(CursorDirection.LEFT);
+              break;
+            case ConsoleKey.RightArrow:
+              cursor.moveCursor(CursorDirection.RIGHT);
+              break;
+            case ConsoleKey.Spacebar:
+              playground.ToggleDot(cursor.relx, cursor.rely);
+              break;
+            case ConsoleKey.Escape:
+              gameExit = true;
+              break;
+            case ConsoleKey.C:
+              playground.LoadPattern(PlaygroundPattern.CLEAR);
+              break;
+            case ConsoleKey.R:
+              playground.LoadPattern(PlaygroundPattern.RANDOM);
+              break;
           }
         }
+#endif
         info.Value = $"Generation: {playground.Generation}";
       }
       playground.cleardraw();
+      while (true) ;
 
 
       //GameOfLife game = new GameOfLife();
       //Console.WriteLine("o");
-    }
-
-    static bool[,] NextGeneration(bool[,] current, bool[,] next)
-    {
-      for (int y = 0; y < current.GetLength(1); y++)
-      {
-        for (int x = 0; x < current.GetLength(0); x++)
-        {
-          int count = CountNeighbours(current, x, y);
-          bool state = current[x, y];
-
-          // 1) Any live cell with two or three live
-          // neighbours survives.
-          if ((state && count == 2) ||
-              (state && count == 3))
-            next[x, y] = true;
-          // 2) Any dead cell with three live neighbours
-          // becomes a live cell.
-          else if (!state && count == 3)
-            next[x, y] = true;
-          // 3) All other live cells die in the next generation.
-          // Similarly, all other dead cells stay dead.
-          else
-            next[x, y] = false;
-        }
-      }
-      return next;
-    }
-
-    static int CountNeighbours(bool[,] array, int x, int y)
-    {
-      int sum = 0;
-      int width = array.GetLength(0);
-      int height = array.GetLength(1);
-      //
-      for (int i = -1; i < 2; i++)
-      {
-        for (int j = -1; j < 2; j++)
-        {
-          if (i == 0 && j == 0) continue;
-
-          int col = (x + i + width) % width;
-          int row = (y + j + height) % height;
-
-          sum += (array[col, row]) ? 1 : 0;
-        }
-      }
-      return sum;
-    }
-
-    static bool[,] PopulateRandom(bool[,] array)
-    {
-      Random rand = new Random();
-      for (int y = 0; y < array.GetLength(1); y++)
-      {
-        for (int x = 0; x < array.GetLength(0); x++)
-        {
-          array[x, y] = (rand.Next(2) == 1);
-        }
-      }
-      return array;
-    }
-
-    static void PrintArray(bool[,] array)
-    {
-      (int curx, int cury) = Console.GetCursorPosition();
-      for (int y = 0; y < array.GetLength(1); y++)
-      {
-        string str = "";
-        for (int x = 0; x < array.GetLength(0); x++)
-        {
-          str += ((array[x, y]) ? "ä" : " ");
-        }
-        Console.Write(str);
-        Console.CursorTop += 1;
-        Console.CursorLeft = curx;
-
-      }
-    }
-
-    static void PrintBorder(bool[,] array)
-    {
-      (int curx, int cury) = Console.GetCursorPosition();
-      string str = "";
-      str += ("+" + String.Concat(Enumerable.Repeat("-", array.GetLength(0))) + "+\n");
-      for (int y = 0; y < array.GetLength(1); y++)
-      {
-        str += ("|" + String.Concat(Enumerable.Repeat(" ", array.GetLength(0))) + "|\n");
-      }
-      str += ("+" + String.Concat(Enumerable.Repeat("-", array.GetLength(0))) + "+");
-      Util.WriteColored(str, ConsoleColor.DarkGray);
-      Console.SetCursorPosition(curx, cury);
-    }
-
-    static bool[,] Create2DArray(int width, int height)
-    {
-      return new bool[width, height];
     }
   }
 }

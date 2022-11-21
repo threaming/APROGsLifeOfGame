@@ -122,7 +122,7 @@ namespace LifeOfGame
       Console.SetCursorPosition(1, y);
       for (int y = 0; y < this.height; y++)
       {
-        str = new string('x', this.width);
+        str = new string(' ', this.width);
 
         Util.WriteColored(str, this.color);
         Console.CursorLeft = this.x;
