@@ -6,6 +6,7 @@ using System.Threading;
 using GpioHAT;
 using MenuSpace;
 using System.Device.Gpio;
+using System.Timers;
 
 
 
@@ -37,7 +38,7 @@ namespace LifeOfGame
 {
   internal class Program
   {
-    const int playgroundHeight = 40, playgroundWidth = 40;
+    const int playgroundHeight = 20, playgroundWidth = 20;
     static bool gameExit = false;
 
 #if USE_PI_CONTROLS
@@ -119,19 +120,21 @@ namespace LifeOfGame
         Console.SetWindowSize(playgroundWidth + 10, playgroundHeight + 10);
       }
 
-      title.draw();
-      border.draw();
+      System.Timers.Timer timer = new System.Timers.Timer();
+
       bool startLoop = false;
+      timer.Elapsed += playground.NextTimed;
+      timer.Interval = 50;
+
+      title.draw();
+      border.draw();      
+      
       while (!gameExit)
       {
-        playground.draw();
-        cursor.draw();
+        playground.draw(cursor);
+        //cursor.draw();
         info.draw();
 
-        if (startLoop)
-        {
-          playground.Next();
-        }
 
 #if USE_COMPUTER_CONTROLS
         if(Console.KeyAvailable)
@@ -140,6 +143,13 @@ namespace LifeOfGame
           {
             case ConsoleKey.Enter:
               startLoop = !startLoop;
+              if(startLoop)
+              {
+                timer.Start();
+              } else
+              {
+                timer.Stop();
+              }
               break;
             case ConsoleKey.UpArrow:
               cursor.moveCursor(CursorDirection.UP);
@@ -168,6 +178,7 @@ namespace LifeOfGame
           }
         }
 #endif
+
         info.Value = $"Generation: {playground.Generation}";
       }
       playground.cleardraw();

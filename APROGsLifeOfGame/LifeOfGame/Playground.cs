@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 using GpioHAT;
+using System.Timers;
 
 namespace LifeOfGame
 {
@@ -23,7 +23,7 @@ namespace LifeOfGame
 
     public void LoadPattern(PlaygroundPattern pattern)
     {
-      switch(pattern)
+      switch (pattern)
       {
         case PlaygroundPattern.RANDOM:
           PopulateRandom(this.data);
@@ -36,12 +36,17 @@ namespace LifeOfGame
 
     public bool GetDot(int x, int y)
     {
-      return this.data[x,y];
+      return this.data[x, y];
     }
 
     public void ToggleDot(int x, int y)
     {
       this.data[x, y] = !this.data[x, y];
+    }
+
+    public void NextTimed(object source, System.Timers.ElapsedEventArgs e)
+    {
+      Next();
     }
 
     public void Next()
@@ -140,6 +145,41 @@ namespace LifeOfGame
         for (int x = 0; x < width; x++)
         {
           str += ((data[x, y]) ? "ä" : " ");
+        }
+
+        Util.WriteColored(str, this.color);
+        Console.CursorLeft = this.x;
+      }
+    }
+
+    public void draw(Cursor cursor)
+    {
+      string str;
+      Console.SetCursorPosition(x, y);
+      for (int y = 0; y < height; y++)
+      {
+        str = "";
+        if (y == cursor.rely)
+        {
+          for (int x = 0; x < cursor.relx; x++)
+          {
+            str += ((data[x, y]) ? "ä" : " ");
+          }
+          Util.WriteColored(str, this.color, false);
+          cursor.draw(this.GetDot(cursor.relx,y));
+          str = "";
+          for (int x = cursor.relx + 1; (x < width); x++)
+          {
+            str += ((data[x, y]) ? "ä" : " ");
+          }
+        }
+        else
+        {
+
+          for (int x = 0; x < width; x++)
+          {
+            str += ((data[x, y]) ? "ä" : " ");
+          }
         }
 
         Util.WriteColored(str, this.color);

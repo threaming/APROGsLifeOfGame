@@ -44,7 +44,24 @@ namespace LifeOfGame
       if (Visible)
       {
         Console.SetCursorPosition(x + relx, y + rely);
-        Util.WriteColored("ä", color);
+        Util.WriteColored("ä", color, false);
+      }
+    }
+
+    public void draw(bool isDotSet)
+    {
+      if (Visible)
+      {
+        Console.SetCursorPosition(x + relx, y + rely);
+        if(isDotSet)
+        {
+          Util.WriteColored("ä", Console.BackgroundColor, color, false);
+
+        }
+        else
+        {
+          Util.WriteColored("ä", color, false);
+        }
       }
     }
   }
