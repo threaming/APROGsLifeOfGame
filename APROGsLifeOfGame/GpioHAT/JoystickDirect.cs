@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Device.Gpio;
 using System.Linq;
 using System.Text;
+using System.Threading;
 
 namespace GpioHAT
 {
-  public class JoystickDirect : IJoystick
+  public class JoystickDirect : Joystick
   {
     private GpioController gpioControl;
 
@@ -19,7 +20,7 @@ namespace GpioHAT
       { JoystickButtons.CENTER, 26 }
     };
 
-    public JoystickButtons State
+    public override JoystickButtons State
     {
       get {
         JoystickButtons state = JoystickButtons.NONE;
@@ -40,6 +41,11 @@ namespace GpioHAT
       {
         this.gpioControl.OpenPin(pin, PinMode.InputPullUp);
       }
+
+            // Open thread for input handling
+            Thread tJoy = new Thread(Update);
+            tJoy.IsBackground = true;
+            tJoy.Start();
     }
 
     public void AttachEvent(PinEventTypes eventType, PinChangeEventHandler callback)

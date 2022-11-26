@@ -6,12 +6,12 @@
     <Configurations>Debug;Release;Debug - No Raspberry Pi</Configurations>
   </PropertyGroup>
   
-<!--
+
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
 		<Exec Command="cd &quot;$(TargetDir)&quot;&#xD;&#xA;&quot;$(SolutionDir)\SecureUpload.exe&quot; . pi-hslu:netcore/$(ProjectName)" />
 	</Target>
-	-->
-  
+
+    
 	<ItemGroup>
 	  <ProjectReference Include="..\GpioHAT\GpioHAT.csproj" />
 	  <ProjectReference Include="..\Menu\Menu.csproj" />

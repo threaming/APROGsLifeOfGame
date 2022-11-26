@@ -11,41 +11,58 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="GpioHAT.JoystickDirect" BaseTypeListCollapsed="true">
-    <Position X="0.5" Y="7" Width="1.5" />
+    <Position X="6.5" Y="7" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAQAAAAAAAQAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <HashCode>AAAAQAAAAAAAAAQAAAAAAAQAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>JoystickDirect.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
+    <ShowAsAssociation>
+      <Field Name="gpioControl" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="System.Device.Gpio.GpioController">
-    <Position X="3.5" Y="3.75" Width="1.5" />
+    <Position X="3.25" Y="3.75" Width="2" />
     <TypeIdentifier />
   </Class>
   <Class Name="GpioHAT.Raspberry">
-    <Position X="7" Y="4.25" Width="1.5" />
+    <Position X="9" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAQAAAAIAAAAACAAAAAAAAIBAAAAAQAAAAAAAAAA=</HashCode>
       <FileName>Raspberry.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GpioHAT.Util">
-    <Position X="8.25" Y="8.75" Width="1.5" />
+    <Position X="9" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAQAAAAAACQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Util.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GpioHAT.Led">
-    <Position X="7" Y="1.5" Width="1.5" />
+    <Position X="0.5" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAACAAAAAAAABAAAAAAgAAAAAA=</HashCode>
       <FileName>Led.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
+  <Class Name="GpioHAT.JoystickEventArgs">
+    <Position X="6.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>JoystickEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GpioHAT.Joystick">
+    <Position X="6.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQACAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Joystick.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
   <Interface Name="GpioHAT.ILed" Collapsed="true">
-    <Position X="2.5" Y="11" Width="1.5" />
+    <Position X="3" Y="11.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAAABAAAAAAgAAAAAA=</HashCode>
       <FileName>ILed.cs</FileName>
@@ -55,28 +72,28 @@
     </ShowAsAssociation>
   </Interface>
   <Interface Name="GpioHAT.IJoystick" Collapsed="true">
-    <Position X="0.75" Y="11" Width="1.5" />
+    <Position X="1.25" Y="11.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>IJoystick.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Enum Name="GpioHAT.LedColors" Collapsed="true">
-    <Position X="2.5" Y="9" Width="1.5" />
+    <Position X="3" Y="9.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAgAAIAAAAAAAAAAAAAAAAAAEAAAAAAAAAA=</HashCode>
       <FileName>LedColors.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="GpioHAT.HatPins" Collapsed="true">
-    <Position X="4.25" Y="9" Width="1.5" />
+    <Position X="4.75" Y="9.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AACIAAAAAAAAAAAgAAQAAAAQAAAAAAAAAAAAIAAAAgA=</HashCode>
       <FileName>HatPins.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="GpioHAT.JoystickButtons" Collapsed="true">
-    <Position X="0.75" Y="9" Width="1.5" />
+    <Position X="1.25" Y="9.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAAQAAAAAAAAICAAAgAAAAAAAAIAA=</HashCode>
       <FileName>JoystickButtons.cs</FileName>

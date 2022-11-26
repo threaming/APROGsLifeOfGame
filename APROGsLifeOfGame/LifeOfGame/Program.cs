@@ -33,26 +33,27 @@ using System.Timers;
 
 namespace LifeOfGame
 {
-  internal class Program
-  {
-    static void Main(string[] args)
+    internal class Program
     {
-      Util.WaitForDebugger();
-      Menu menu = new Menu();
-      GameOfLife gameOfLife = new GameOfLife(Device.Computer);
-      while (true)
-      {
-        menu.Escape();
-        menu.ChooseGame();
-        switch (Console.ReadKey().Key)
+        static void Main(string[] args)
         {
-          case ConsoleKey.Enter:
-            gameOfLife.PlayARound();
-            break;
-          case ConsoleKey.Escape:
-            return;
+            Util.WaitForDebugger();
+            Menu menu = new Menu();
+            GameOfLife gameOfLife = new GameOfLife(Device.Computer);
+            while (true)
+            {
+                menu.Escape();
+                menu.ChooseGame();
+                switch (Console.ReadKey().Key)
+                {
+                    case ConsoleKey.Enter:
+                        gameOfLife.PlayARound();
+                        Console.Clear();
+                        break;
+                    case ConsoleKey.Escape:
+                        return;
+                }
+            }
         }
-      }
     }
-  }
 }
