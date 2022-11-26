@@ -16,6 +16,8 @@ namespace LifeOfGame
 
         static Cursor cursor;
         static Playground playground;
+        static bool startLoop = false;
+        static System.Timers.Timer timer;
 
         enum GameStates
         {
@@ -33,20 +35,39 @@ namespace LifeOfGame
             // Button Pressed
             switch (e.Button)
             {
-                case JoystickButtons.LEFT:
+                case JoystickButtons.LEFT:  // move cursor to left
                     cursor.moveCursor(CursorDirection.LEFT);
                     break;
-                case JoystickButtons.RIGHT:
+                case JoystickButtons.RIGHT: // move cursor to right
                     cursor.moveCursor(CursorDirection.RIGHT);
                     break;
-                case JoystickButtons.CENTER:
+                case (JoystickButtons.CENTER | JoystickButtons.DOWN):    // toggle active cell
                     playground.ToggleDot(cursor.relx, cursor.rely);
                     break;
-                case JoystickButtons.UP:
+                case JoystickButtons.UP:        // move cursor up
                     cursor.moveCursor(CursorDirection.UP);
                     break;
-                case JoystickButtons.DOWN:
+                case JoystickButtons.DOWN:      // move cursor up
                     cursor.moveCursor(CursorDirection.DOWN);
+                    break;
+                case (JoystickButtons.CENTER | JoystickButtons.UP):     // toggle simulation
+                    startLoop = !startLoop;
+                    if (startLoop)
+                    {
+                        timer.Start();
+                    }
+                    else
+                    {
+                        timer.Stop();
+                    }
+                    break;
+                case (JoystickButtons.CENTER | JoystickButtons.LEFT):   // Escape game
+                    gameExit = true;
+                    Console.Clear();
+                    joystick.JoystickChanged -= JoystickHandler;
+                    break;
+                case (JoystickButtons.CENTER | JoystickButtons.RIGHT):  // Randomized pattern
+                    playground.LoadPattern(PlaygroundPattern.RANDOM);
                     break;
             }
         }
@@ -82,25 +103,21 @@ namespace LifeOfGame
             if (Platform == Device.Raspberry)
             {
                 Util.WriteColored("[Instructions]", ConsoleColor.Black, ConsoleColor.Blue);
-                Util.WriteColored(" - In Menu: ", ConsoleColor.Blue);
-                Console.WriteLine("  (CENTER): Select current Menu\n" +
-                                  "  (UP/DOWN): Navigate Menu");
-
-                Util.WriteColored(" - In Game: ", ConsoleColor.Blue);
-                Console.Write("  (CENTER): ");
-                Util.WriteColored("Hold", ConsoleColor.Red, false);
-                Console.WriteLine(" 1 second to switch between Editor & Simulate Editor mode");
-                Util.WriteColored("     Click", ConsoleColor.Red, false);
-                Console.WriteLine(" to toggle cell state");
-                Console.WriteLine("  (UP/DOWN/LEFT/RIGHT): Navigate Grid");
+                Util.WriteColored(" - On Raspi-Joystick: ", ConsoleColor.DarkGreen);
+                Console.WriteLine("  (CENTER) + (DOWN)    : Toggle active cell");
+                Console.WriteLine("  (UP/DOWN/LEFT/RIGHT) : Navigate Grid");
+                Console.WriteLine("  (CENTER) + (UP)      : Start/Stop simulation");
+                Console.WriteLine("  (CENTER) + (RIGHT)   : Generate a random pattern");
+                Console.Write("  (CENTER) + (LEFT)    : ");
+                Util.WriteColored("Exit", ConsoleColor.Red, false);
+                Console.WriteLine(" GameOfLife");
             }
             if (Platform == Device.Computer)
             {
                 Util.WriteColored("[Instructions]", ConsoleColor.Black, ConsoleColor.Blue);
-                Util.WriteColored(" - In Game: ", ConsoleColor.Blue);
                 Console.WriteLine("  (ENTER)              : Start/Stop simulation");
                 Console.WriteLine("  (UP/DOWN/LEFT/RIGHT) : Navigate Grid");
-                Console.WriteLine("  (SPACE)              : Set/Remove active cell");
+                Console.WriteLine("  (SPACE)              : Toggle active cell");
                 Console.WriteLine("  (R)                  : Generate a random pattern");
                 Console.Write("  (ESC)                : ");
                 Util.WriteColored("Exit", ConsoleColor.Red, false);
@@ -138,10 +155,6 @@ namespace LifeOfGame
             Text title = new Text("aprog's GAME OF LIFE", 0, 0, ConsoleColor.Yellow);
             Text info = new Text("generation: ", 1, playgroundHeight + 3);
 
-            // TODO implement dependent implementation
-#if USE_PI_CONTROLS
-      joystick.AttachEvent(PinEventTypes.Falling, InputHandler);
-#endif
 
             // configure user control 
             // - joystick control & grid navigation
@@ -163,9 +176,7 @@ namespace LifeOfGame
                 Console.SetWindowSize(playgroundWidth + 10, playgroundHeight + 10);
             }
 
-            System.Timers.Timer timer = new System.Timers.Timer();
-
-            bool startLoop = false;
+            timer = new System.Timers.Timer();
             timer.Elapsed += playground.NextTimed;
             timer.Interval = 50;
 
@@ -223,8 +234,6 @@ namespace LifeOfGame
                 }
                 info.Value = $"Generation: {playground.Generation}";
             }
-            playground.cleardraw();
         }
-
     }
 }

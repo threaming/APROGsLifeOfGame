@@ -39,7 +39,7 @@ namespace LifeOfGame
         {
             Util.WaitForDebugger();
             Menu menu = new Menu();
-            GameOfLife gameOfLife = new GameOfLife(Device.Computer);
+            GameOfLife gameOfLife = new GameOfLife(Device.Raspberry);
             while (true)
             {
                 menu.Escape();
